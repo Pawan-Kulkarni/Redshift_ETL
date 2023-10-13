@@ -1,9 +1,11 @@
+"""This file lists some of the business questions addressed by the dataset, along with their respective answers."""
 import configparser
 import psycopg2
 from sql_queries import example_questions
 
 
 def questions(cur, conn):
+    """Display the business question and executes its associated answer."""
     quer_no = 0
     for query in example_questions:
         quer_no +=1
@@ -26,6 +28,7 @@ def questions(cur, conn):
 
 
 def main():
+    """Primary function responsible for handling database connections and executing all operations."""
     config = configparser.ConfigParser()
     config.read('dwh.cfg')
 

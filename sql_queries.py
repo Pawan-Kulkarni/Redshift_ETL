@@ -1,3 +1,5 @@
+"""A collection of SQL queries necessary for this project, including table creation, Redshift data copy, data insertion, and business queries."""
+
 import configparser
 
 
@@ -197,6 +199,7 @@ WHERE e.page='NextSong'
 AND e.ts IS NOT NULL;
 """)
 
+# Some of  Business Questions answered.
 most_famous_artists = """select a.name , count(*) as number_of_times_songs_of_artists_played from songplays s
 INNER JOIN artists a on a.artist_id = s.artist_id
 Group by a.name
@@ -245,5 +248,5 @@ drop_table_queries = [staging_events_table_drop, staging_songs_table_drop, songp
 copy_table_queries = [staging_events_copy, staging_songs_copy]
 insert_table_queries = [songplay_table_insert, user_table_insert, song_table_insert, artist_table_insert, time_table_insert]
 example_questions = [most_famous_artists,most_famous_songs,most_songplays_by_individual_users,most_songplays_by_free_users,daily_songplay_trends]
-#copy_table_queries = [ ]
+
 
